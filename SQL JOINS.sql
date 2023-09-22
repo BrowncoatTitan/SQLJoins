@@ -2,7 +2,8 @@
 using the products table and the categories table, return the product name and the category name */
  SELECT products.Name, categories.Name
  FROM products
- LEFT JOIN categories ON products.CategoryID = categories.CategoryID;
+ LEFT JOIN categories ON products.CategoryID = categories.CategoryID
+ WHERE categories.Name = 'Computers';
  
 /* joins: find all product names, product prices, and products ratings that have a rating of 5 */
  SELECT Products.Name, Products.price, Reviews.Rating 
