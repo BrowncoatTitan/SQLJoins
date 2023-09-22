@@ -33,3 +33,18 @@ FROM products as p
 JOIN reviews as r ON r.ProductID =p.ProductID
 WHERE p.ProductID = 857 AND r.Rating = 1;
 
+
+-- ------------------------------------------ Extra - May be difficult
+/* Your goal is to write a query that serves as an employee sales report.
+This query should return:
+-  the employeeID
+-  the employee's first and last name
+-  the name of each product
+-  and how many of that product they sold */
+
+SELECT employees.employeeID, employees.FirstName, employees.LastName, products.name, sum(sales.Quantity) 
+FROM employees
+JOIN sales ON employees.employeeID = sales.EmployeeID
+JOIN products ON sales.ProductID = products.ProductID
+GROUP BY employees.EmployeeID, products.ProductID
+Order BY employees.FirstName;
